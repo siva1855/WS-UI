@@ -1,0 +1,69 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container">
+        <pre>
+ WhUser Type : 
+   <input type="radio" name="userType" value="Vendor"/> Vendor
+   <input type="radio" name="userType" value="Customer"/> Customer
+
+ Sale For : <input type="text" name="saleFor" id="saleFor" readonly="readonly" class="from-control"/>
+
+   IdType: <select name="idType" id="idType">
+             <option value="">-SELECT-</option>
+             <option value="PAN">PAN</option>
+             <option value="AADHAR">AADHAR</option>
+             <option value="VOTERID">VOTERID</option>
+             <option value="OTHER">OTHER</option>
+          </select>
+		  <span id="idTypeError"> </span>
+  *If Other : <input type="text" name="ifOther" id="ifOther" readOnly/>
+
+ </pre>
+        <script>
+            $(document).ready(function () {
+
+
+                $('input[type="radio"][name="userType"]').change(function () {
+                    var val = $('input[type="radio"][name="userType"]:checked').val();
+                    if (val == 'Vendor') {
+                        $("#saleFor").val('Purchase');
+                    } else if (val == 'Customer') {
+                        $("#saleFor").val('Sale');
+                    }
+                });
+
+                $('select[name="idType"]').change(function () {
+                    var val = $('select[name="idType"]').val();
+                    if (val == '') $("#idTypeError").html("Please choose one option");
+                    else if (val == 'OTHER') {
+                        $("#ifOther").attr('readonly', false);
+                    }
+                    else {
+                        $("#idTypeError").html("");
+                        $("#ifOther").attr('readonly', true);
+                        $("#ifOther").val('');
+                    }
+                });
+
+
+            });
+        </script>
+    </div>
+</body>
+
+</html>
