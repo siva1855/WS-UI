@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        JavaScript
+    </title>
+</head>
+
+<body bgcolor="skyblue" text="white">
+    <center>
+        <h1>JavaScript Objects</h1>
+        <script>
+            function employee(id, name, sal) {
+                this.id = id;
+                this.name = name;
+                this.sal = sal;
+
+            }
+            var emp1 = new employee(101, "siva", 25000);
+            document.write(emp1.id + " " + emp1.name + " " + emp1.sal);
+        </script>
+    </center>
+</body>
+
+</html>
