@@ -1,0 +1,3 @@
+var msg = "<center>welcome to <b> <font color='red'>Type Script </font> </b></center>";
+var styles = "<style>\n                         dt{\n                            font-weight:bold;\n                            color:blue;\n                         }\n                         button{\n                            color:pink;\n                         }\n                        </style>";
+var login = "<h1 >User Login</h1>\n                     <form>\n                        <dl>\n                          <dt>user name:<input type=\"text\" required/></dt>\n                        </dl>\n                        <button>Click</button>\n                     </form>";
